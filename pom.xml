@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.borani.spring.boot</groupId>
-    <artifactId>spring-data-jpa-specification</artifactId>
+    <artifactId>spring-data-jpa-search</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-data-jpa-specification</name>
-    <description>spring-data-jpa-specification</description>
+    <name>spring-data-jpa-search</name>
+    <description>spring-data-jpa-search</description>
     <url/>
     <licenses>
         <license/>

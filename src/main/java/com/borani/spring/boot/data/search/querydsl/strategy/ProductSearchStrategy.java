@@ -2,6 +2,7 @@ package com.borani.spring.boot.data.search.querydsl.strategy;
 
 import com.borani.spring.boot.data.search.dto.ProductSearchCriteria;
 import com.borani.spring.boot.data.search.entity.Product;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
@@ -26,12 +27,6 @@ public class ProductSearchStrategy {
                 .collect(Collectors.toMap(SearchStrategy::getType, Function.identity()));
     }
 
-    public Predicate buildPredicate(Root<Product> root, CriteriaBuilder cb, ProductSearchCriteria dto) {
-        List<Predicate> predicates = strategyMap.values().stream()
-                .map(s -> s.build(root, cb, dto))
-                .flatMap(Optional::stream)
-                .toList();
-
-        return cb.and(predicates.toArray(Predicate[]::new));
+    public void buildPredicate(ProductSearchCriteria dto) {
     }
 }

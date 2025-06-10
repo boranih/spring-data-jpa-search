@@ -2,6 +2,8 @@ package com.borani.spring.boot.data.search.querydsl.strategy;
 
 import com.borani.spring.boot.data.search.dto.ProductSearchCriteria;
 import com.borani.spring.boot.data.search.entity.Product;
+import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.core.types.dsl.Expressions;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
@@ -17,10 +19,7 @@ public class NamePredicateStrategy implements SearchStrategy {
     }
 
     @Override
-    public Optional<Predicate> build(Root<Product> root, CriteriaBuilder cb, ProductSearchCriteria dto) {
-        String name = dto.name();
-        return (name != null && !name.isEmpty())
-                ? Optional.of(cb.equal(root.get("name"), name))
-                : Optional.empty();
+    public BooleanExpression build(ProductSearchCriteria searchCriteria) {
+        return Expressions.TRUE;
     }
 }

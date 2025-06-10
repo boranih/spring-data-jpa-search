@@ -20,8 +20,7 @@ public class ProductService {
     }
 
     public Page<Product> searchProducts(ProductSearchCriteria dto, Pageable pageable) {
-        return productRepository.findAll((root, query, cb) ->
-                searchStrategy.buildPredicate(root, cb, dto), pageable);
+        return null;
     }
 
 }

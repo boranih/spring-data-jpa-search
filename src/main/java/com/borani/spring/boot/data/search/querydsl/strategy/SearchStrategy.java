@@ -13,5 +13,5 @@ public interface SearchStrategy {
 
     SearchStrategyType getType();
 
-    BooleanExpression build(String value);
+    BooleanExpression build(ProductSearchCriteria searchCriteria);
 }
